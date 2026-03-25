@@ -47,5 +47,11 @@ data/
 *~
 .DS_Store
 
+# Large Model Files (GitHub size limits)
+models/*.pkl
+models/*.h5
+models/*.pth
+models/*.model
+
 # Streamlit
 .streamlit/
