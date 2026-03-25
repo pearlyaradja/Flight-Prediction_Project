@@ -557,40 +557,45 @@ st.markdown("""
 @st.cache_resource
 def load_models():
     models_dir = Path(__file__).parent / 'models'
+    models = {}
     
+    # Load flight delay models (optional)
     try:
-        # Load flight delay models
         flight_model = pickle.load(open(models_dir / 'flight_delay_model.pkl', 'rb'))
         flight_scaler = pickle.load(open(models_dir / 'flight_delay_scaler.pkl', 'rb'))
         flight_features = pickle.load(open(models_dir / 'flight_delay_features.pkl', 'rb'))
         flight_encoders = pickle.load(open(models_dir / 'flight_delay_label_encoders.pkl', 'rb'))
         flight_results = pickle.load(open(models_dir / 'flight_delay_results.pkl', 'rb'))
         
-        # Load satisfaction models
+        models['flight'] = {
+            'model': flight_model,
+            'scaler': flight_scaler,
+            'features': flight_features,
+            'encoders': flight_encoders,
+            'results': flight_results
+        }
+    except Exception as e:
+        models['flight'] = None
+    
+    # Load satisfaction models
+    try:
         satisfaction_model = pickle.load(open(models_dir / 'satisfaction_model.pkl', 'rb'))
         satisfaction_scaler = pickle.load(open(models_dir / 'satisfaction_scaler.pkl', 'rb'))
         satisfaction_features = pickle.load(open(models_dir / 'satisfaction_features.pkl', 'rb'))
         satisfaction_encoders = pickle.load(open(models_dir / 'satisfaction_label_encoders.pkl', 'rb'))
         satisfaction_results = pickle.load(open(models_dir / 'satisfaction_results.pkl', 'rb'))
         
-        return {
-            'flight': {
-                'model': flight_model,
-                'scaler': flight_scaler,
-                'features': flight_features,
-                'encoders': flight_encoders,
-                'results': flight_results
-            },
-            'satisfaction': {
-                'model': satisfaction_model,
-                'scaler': satisfaction_scaler,
-                'features': satisfaction_features,
-                'encoders': satisfaction_encoders,
-                'results': satisfaction_results
-            }
+        models['satisfaction'] = {
+            'model': satisfaction_model,
+            'scaler': satisfaction_scaler,
+            'features': satisfaction_features,
+            'encoders': satisfaction_encoders,
+            'results': satisfaction_results
         }
     except Exception as e:
-        return None
+        models['satisfaction'] = None
+    
+    return models if (models['satisfaction'] is not None or models['flight'] is not None) else None
 
 # Generate sample predictions for visualization
 @st.cache_data
