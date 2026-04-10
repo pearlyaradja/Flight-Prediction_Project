@@ -469,17 +469,18 @@ st.markdown("""
     .main {
         padding: 0;
         color: #333;
+        background: #f5f7fa !important;
     }
     
     .main p {
-        color: #555 !important;
+        color: #555;
         line-height: 1.8;
         font-size: 1em;
         font-weight: 400;
     }
     
     .main h1, .main h2, .main h3, .main h4, .main h5, .main h6 {
-        color: #1a1a1a !important;
+        color: #1a1a1a;
         font-weight: 700;
         letter-spacing: -0.01em;
     }
