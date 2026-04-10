@@ -472,11 +472,8 @@ st.markdown("""
         background-color: #f5f7fa !important;
     }
 
-    .main [data-testid="stMarkdownContainer"] p,
-    .main [data-testid="stMarkdownContainer"] li {
+    .main div, .main span, .main p, .main li, .main td, .main th {
         color: #374151 !important;
-        font-size: 1em;
-        line-height: 1.8;
     }
 
     .main h1, .main h2, .main h3, .main h4, .main h5, .main h6 {
