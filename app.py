@@ -74,7 +74,7 @@ st.markdown("""
     
     .hero-main {
         font-size: 1.2em;
-        color: #cbd5f5;
+        color: #e2e8f0;
         margin-bottom: 8px;
     }
     
@@ -163,10 +163,11 @@ st.markdown("""
         font-size: 1.3em;
     }
     
-    .info-box p, .info-box ul, .info-box li {
-        color: white !important;
-        line-height: 1.8;
+    .info-box p, .info-box ul, .info-box li, .info-box div[data-testid="stMarkdownContainer"] p, .info-box div[data-testid="stMarkdownContainer"] li {
+        color: #d1d5db !important;
+        line-height: 1.7;
         font-weight: 400;
+        font-size: 0.95em;
     }
     
     .info-box ul {
@@ -468,17 +469,16 @@ st.markdown("""
     
     .main {
         padding: 0;
-        color: #333;
-        background: #f5f7fa !important;
+        background-color: #f5f7fa !important;
     }
-    
-    .main p {
-        color: #555;
-        line-height: 1.8;
+
+    .main [data-testid="stMarkdownContainer"] p,
+    .main [data-testid="stMarkdownContainer"] li {
+        color: #374151 !important;
         font-size: 1em;
-        font-weight: 400;
+        line-height: 1.8;
     }
-    
+
     .main h1, .main h2, .main h3, .main h4, .main h5, .main h6 {
         color: #1a1a1a;
         font-weight: 700;
