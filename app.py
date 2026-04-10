@@ -11,7 +11,7 @@ from pathlib import Path
 # Set page config
 st.set_page_config(
     page_title="Flight & Satisfaction ML Dashboard",
-    page_icon="✈️",
+    page_icon="✈",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
@@ -360,7 +360,7 @@ st.markdown("""
         color: #cbd5e1 !important;
         border: none !important;
         padding: 12px 16px !important;
-        margin: 4px 8px !important;
+        margin: 6px 8px !important;
         border-radius: 8px !important;
         font-weight: 500 !important;
         font-size: 0.9em !important;
@@ -377,8 +377,15 @@ st.markdown("""
     
     [data-testid="stSidebar"] .stButton > button:hover {
         background-color: rgba(59, 130, 246, 0.15) !important;
-        color: #3b82f6 !important;
-        border-left: 3px solid #3b82f6 !important;
+        color: #ffffff !important;
+    }
+    
+    [data-testid="stSidebar"] .stButton > button:focus {
+        background: linear-gradient(90deg, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0.1) 100%) !important;
+        color: #ffffff !important;
+        border-left: 4px solid #3b82f6 !important;
+        outline: none !important;
+        box-shadow: none !important;
     }
     
     [data-testid="stSidebar"] label {
@@ -991,12 +998,15 @@ elif nav_choice == "Satisfaction":
     
     st.markdown("""
     <div class="info-box info-box-warning">
-        <h3>💡 Key Satisfaction Drivers</h3>
+        <h3>Key Satisfaction Drivers</h3>
         <ul>
             <li><strong>Service Quality (Weight: 35%):</strong> In-flight service is the #1 satisfaction driver</li>
             <li><strong>Seat Comfort (Weight: 28%):</strong> Business class satisfaction 60% higher than economy</li>
             <li><strong>Price Value (Weight: 20%):</strong> Customers care about value for money</li>
             <li><strong>Food Quality (Weight: 12%):</strong> Meal satisfaction correlates 0.68 with overall satisfaction</li>
+            <li><strong>WiFi/Entertainment (Weight: 5%):</strong> Modern amenities significantly improve experience</li>
+        </ul>
+    </div>
             <li><strong>WiFi/Entertainment (Weight: 5%):</strong> Modern amenities significantly improve experience</li>
         </ul>
     </div>
